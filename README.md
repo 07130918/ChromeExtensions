@@ -1,24 +1,18 @@
-# to-do-list-extention
+参考: https://original-game.com/how-to-make-chrome-extensions/
+Vueで作り終わったら、npm run build でビルドしそれを拡張機能側(chrome://extensions/)で更新
 
-## Project setup
+※その際にmanifest.jsonとiconを設置知ることを忘れない
+(変更を監視するためdistはgitignoreから外す)
 ```
-npm install
+{
+	"name": "To Do List",
+    "description": "A simple to-do list app",
+	"manifest_version": 3,
+	"version": "1.0",
+	"permissions": ["activeTab","scripting"],
+    "action": {
+        "default_icon": "img/icon.png",
+        "default_popup": "index.html"
+    }
+}
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
