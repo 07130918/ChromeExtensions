@@ -5,7 +5,7 @@
             <input type="checkbox" v-model="list.isInputable">
             <input type="text" v-model="list.content" autocomplete="off" :disabled="list.isInputable">
         </div>
-        <input type="button" value="Reset" @click="toDoList=createList(listLength)">
+        <button class="btn btn-danger" @click="toDoList=createList(listLength)">Reset</button>
     </div>
 </template>
 
