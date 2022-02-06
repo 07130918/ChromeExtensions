@@ -1,14 +1,7 @@
 <template>
     <div id="app">
         <!-- keep-aliveしたい -->
-        <div class="to-do-list">
-            <h1>To Do List</h1>
-            <div v-for="(key, i) in isInputablesOfToDo.length" :key="key">
-                <input type="checkbox" v-model="isInputablesOfToDo[i]">
-                <input type="text" v-model="toDoList[i]" autocomplete="off" :disabled="isInputablesOfToDo[i]">
-            </div>
-            <input type="button" value="clear" @click="clearToDoValues">
-        </div>
+        <to-do-list></to-do-list>
         <div class="not-to-do-list">
             <h1>Not To Do List</h1>
             <div v-for="(key, t) in isInputablesOfNotToDo.length" :key="key">
@@ -21,21 +14,20 @@
 </template>
 
 <script>
+import ToDoList from './components/ToDoList.vue'
+
 export default {
     name: 'App',
+    components: {
+        'to-do-list': ToDoList,
+    },
     data() {
         return {
-            toDoList: [],
             notToDoList: [],
-            isInputablesOfToDo: [false, false, false, false, false, false],
             isInputablesOfNotToDo: [false, false, false],
         }
     },
     methods: {
-        clearToDoValues() {
-            this.toDoList = [];
-            this.isInputablesOfToDo = [false, false, false, false, false, false];
-        },
         clearNotToDoValues() {
             this.notToDoList = [];
             this.isInputablesOfNotToDo = [false, false, false];
