@@ -1,7 +1,9 @@
 <template>
     <div id="app">
-        <h1 @click="changeComponent('to-do-list')">To Do List</h1>
-        <h1 @click="changeComponent('not-to-do-list')">Not To Do List</h1>
+        <div id="list-title-wrapper">
+            <h3 @click="changeComponent('to-do-list')">To Do List</h3>
+            <h3 @click="changeComponent('not-to-do-list')">Not To Do List</h3>
+        </div>
         <keep-alive>
             <component :is="currentComponent"></component>
         </keep-alive>

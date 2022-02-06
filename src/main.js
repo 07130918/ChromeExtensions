@@ -4,6 +4,8 @@ import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+require('./assets/scss/style.scss')
+
 Vue.config.productionTip = false
 
 new Vue({
