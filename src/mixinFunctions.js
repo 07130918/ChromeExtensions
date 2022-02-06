@@ -1,11 +1,11 @@
 export default {
     methods: {
         createList(targetListLength) {
-            const targetList = [];
+            const generatedList = [];
             for (let i = 0; i < targetListLength; i++) {
-                targetList.push({ isInputable: false, content: '' });
+                generatedList.push({ isInputable: false, content: '' });
             }
-            return targetList;
+            return generatedList;
         },
     },
 }
