@@ -1,8 +1,10 @@
 <template>
     <div id="app">
-        <!-- keep-aliveしたい -->
-        <to-do-list></to-do-list>
-        <not-to-do-list></not-to-do-list>
+        <h1 @click="changeComponent('to-do-list')">To Do List</h1>
+        <h1 @click="changeComponent('not-to-do-list')">Not To Do List</h1>
+        <keep-alive>
+            <component :is="currentComponent"></component>
+        </keep-alive>
     </div>
 </template>
 
@@ -12,9 +14,19 @@ import NotToDoList from './components/NotToDoList.vue'
 
 export default {
     name: 'App',
+    data() {
+        return {
+            currentComponent: 'to-do-list',
+        }
+    },
     components: {
         'to-do-list': ToDoList,
         'not-to-do-list': NotToDoList,
+    },
+    methods: {
+        changeComponent(componentName) {
+            this.currentComponent = componentName;
+        },
     },
 }
 </script>

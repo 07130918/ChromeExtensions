@@ -1,6 +1,5 @@
 <template>
     <div class="not-to-do-list">
-        <h1>To Do List</h1>
         <!-- :keyは仮置 -->
         <div v-for="list in toDoList" :key="list.content.value">
             <input type="checkbox" v-model="list.isInputable">
