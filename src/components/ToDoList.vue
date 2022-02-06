@@ -1,37 +1,28 @@
 <template>
-    <div class="to-do-list">
+    <div class="not-to-do-list">
         <h1>To Do List</h1>
-        <div v-for="list in toDoList" :key="list.content">
+        <!-- :keyは仮置 -->
+        <div v-for="list in toDoList" :key="list.content.value">
             <input type="checkbox" v-model="list.isInputable">
             <input type="text" v-model="list.content" autocomplete="off" :disabled="list.isInputable">
         </div>
-        <input type="button" value="Reset" @click="createList">
+        <input type="button" value="Reset" @click="toDoList=createList(listLength)">
     </div>
 </template>
 
 <script>
+import mixinFunctions from "../mixinFunctions";
+
 export default {
+    mixins: [mixinFunctions],
     data() {
         return {
             toDoList: [],
-            toDoListObj: {
-                isInputable: false,
-                content: '',
-            },
             listLength: 6,
         }
     },
     created() {
-        this.createList();
+        this.toDoList = this.createList(this.listLength);
     },
-    methods: {
-        createList() {
-            if (this.toDoList.length != 0) this.toDoList = [];
-
-            for (let index = 0; index < this.listLength; index++) {
-                this.toDoList.push({...this.toDoListObj});
-            }
-        },
-    }
 }
 </script>
