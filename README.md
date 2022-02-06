@@ -2,11 +2,11 @@
 
 Vueで作り終わったら、npm run build でビルドしそれを拡張機能側(chrome://extensions/)で更新
 
-### ※その際にmanifest.jsonとiconを設置知ることを忘れない
+### ※その際にmanifest.jsonとiconを設置することを忘れない
 
 ```
 {
-	"name": "To Do List",
+    "name": "To Do List",
     "description": "A simple to-do list app",
 	"manifest_version": 3,
 	"version": "1.0",
