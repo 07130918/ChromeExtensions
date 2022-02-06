@@ -1,11 +1,11 @@
 <template>
     <div class="to-do-list">
         <h1>To Do List</h1>
-        <div v-for="list in toDoList" :key="list">
+        <div v-for="list in toDoList" :key="list.content">
             <input type="checkbox" v-model="list.isInputable">
-            <input type="text" v-model="toDoList.content" autocomplete="off" :disabled="list.isInputable">
+            <input type="text" v-model="list.content" autocomplete="off" :disabled="list.isInputable">
         </div>
-        <input type="button" value="list clear" @click="clearToDoValues">
+        <input type="button" value="Reset" @click="createList">
     </div>
 </template>
 
@@ -13,21 +13,24 @@
 export default {
     data() {
         return {
+            toDoList: [],
             toDoListObj: {
                 isInputable: false,
-                content: null,
+                content: '',
             },
-            toDoList: [],
+            listLength: 6,
         }
     },
     created() {
-        for (let index = 0; index < 6; index++) {
-            this.toDoList.push(this.toDoListObj);
-        }
+        this.createList();
     },
     methods: {
-        clearToDoValues() {
-            this.toDoList = [];
+        createList() {
+            if (this.toDoList.length != 0) this.toDoList = [];
+
+            for (let index = 0; index < this.listLength; index++) {
+                this.toDoList.push({...this.toDoListObj});
+            }
         },
     }
 }
