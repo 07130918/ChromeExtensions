@@ -7,13 +7,14 @@
 ```
 {
     "name": "To Do List",
-    "description": "A simple to-do list app",
-	"manifest_version": 3,
-	"version": "1.0",
-	"permissions": ["activeTab","scripting"],
+    "description": "A simple To Do List extension",
+    "manifest_version": 3,
+    "version": "1.0",
+    "permissions": ["activeTab","scripting", "storage"],
     "action": {
         "default_icon": "img/icon.png",
         "default_popup": "index.html"
     }
 }
+
 ```
