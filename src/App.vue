@@ -1,9 +1,10 @@
 <template>
     <div id="app">
         <div id="list-title-wrapper">
-            <h3 @click="changeComponent('to-do-list')">To Do List</h3>
-            <h3 @click="changeComponent('not-to-do-list')">Not To Do List</h3>
+            <h5 @click="changeComponent('to-do-list')">To Do List</h5>
+            <h5 @click="changeComponent('not-to-do-list')">Not To Do List</h5>
         </div>
+        <!-- keep-aliveはなくても動くが切り替えの描画に影響する -->
         <keep-alive>
             <component :is="currentComponent"></component>
         </keep-alive>
