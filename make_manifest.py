@@ -13,10 +13,11 @@ def main():
         "version": "1.0",
         "permissions": ["activeTab", "scripting", "storage"],
         "action": {
-            "default_icon": "icon.png",
+            "default_icon": "logo.png",
             "default_popup": "index.html"
         }
     }
+
     os.system('touch dist/manifest.json')
     with open('dist/manifest.json', 'w') as f:
         json.dump(content, f, ensure_ascii=False)
