@@ -1,8 +1,9 @@
 参考: https://original-game.com/how-to-make-chrome-extensions/
 
-#### Vueで作り終わったら、npm run build でビルドしそれを拡張機能側(chrome://extensions/)で更新
+#### Vueで作り終わったら、npm run build でビルド
+#### その後make_manifest.pyを実行しマニフェストの作成
+#### それを拡張機能側(chrome://extensions/)で更新
 
-### ※その際にmanifest.jsonとiconを設置することを忘れない
 
 ```
 {
