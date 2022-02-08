@@ -1,10 +1,10 @@
 <template>
     <div class="not-to-do-list">
         <!-- :keyは仮置 -->
-        <div v-for="list in notToDoList" :key="list.content.value">
+        <div class="list-children" v-for="list in notToDoList" :key="list.content.value">
             <input type="text" :value="list.content" @change="updateContent(list, $event)" autocomplete="off" :disabled="list.isInputable">
         </div>
-        <button class="btn btn-danger" @click="notToDoList=createList(listLength, 'notToDoList')">Reset</button>
+        <button class="btn btn-danger reset" @click="notToDoList=createList(listLength, 'notToDoList')">Reset</button>
     </div>
 </template>
 
