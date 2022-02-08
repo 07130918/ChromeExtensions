@@ -12,7 +12,7 @@
     "version": "1.0",
     "permissions": ["activeTab","scripting", "storage"],
     "action": {
-        "default_icon": "img/icon.png",
+        "default_icon": "icon.png",
         "default_popup": "index.html"
     }
 }
