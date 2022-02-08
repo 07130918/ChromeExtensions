@@ -1,8 +1,8 @@
-# make manifest.json
-# type python make_manifest.py
+# make manifest.json and set icon to dist
 
 import os
 import json
+import shutil
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
         "version": "1.0",
         "permissions": ["activeTab", "scripting", "storage"],
         "action": {
-            "default_icon": "logo.png",
+            "default_icon": "icon.png",
             "default_popup": "index.html"
         }
     }
@@ -21,6 +21,8 @@ def main():
     os.system('touch dist/manifest.json')
     with open('dist/manifest.json', 'w') as f:
         json.dump(content, f, ensure_ascii=False)
+
+    shutil.copy('./icon.png', './dist')
 
 
 if __name__ == '__main__':
