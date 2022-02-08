@@ -18,6 +18,7 @@ def main():
         }
     }
 
+    os.system('npm run build')
     os.system('touch dist/manifest.json')
     with open('dist/manifest.json', 'w') as f:
         json.dump(content, f, ensure_ascii=False)
