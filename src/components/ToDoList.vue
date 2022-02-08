@@ -3,7 +3,7 @@
         <!-- :keyは仮置 -->
         <div class="list-children" v-for="list in toDoList" :key="list.content.value">
             <input type="checkbox" class="checkbox" :checked="list.isInputable" @change="updateIsInputable(list, $event)">
-            <input type="text" :value="list.content" @change="updateContent(list, $event)" autocomplete="off" :disabled="list.isInputable">
+            <input type="text" class="text-content" :value="list.content" @change="updateContent(list, $event)" autocomplete="off" :disabled="list.isInputable">
         </div>
         <button class="btn btn-danger reset" @click="toDoList=createList(listLength, 'toDoList')">Reset</button>
     </div>

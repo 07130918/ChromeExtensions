@@ -1,5 +1,6 @@
 // App.vue
 body {
+    width: 300px;
     padding: 10px;
 }
 #list-title-wrapper {
@@ -11,7 +12,11 @@ body {
 }
 
 // components
-.list-children{
+.to-do-list, .not-to-do-list {
+    margin-left: 1vw;
+}
+
+.list-children {
     padding-bottom: 10px;
 }
 
@@ -50,8 +55,4 @@ body {
         background: #fff;
         cursor: pointer;
     }
-}
-
-.reset {
-    margin-left: 1.9rem;
 }
