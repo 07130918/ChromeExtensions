@@ -1,13 +1,17 @@
 <template>
     <div>
         <div class="custom-control custom-switch btn-dark-mode">
-        <input type="checkbox" class="custom-control-input" id="customSwitch1" @change="turnOverScreen" :checked="darkMode">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1" @change="toggleDarkMode" :checked="darkMode">
             <label class="custom-control-label" for="customSwitch1">
                 Dark Mode
             </label>
         </div>
         <button class="btn btn-outline-danger btn-sm reset-all" @click="resetBothLists">Reset All</button>
         <footer>
+            <a class="site-link" href="https://word-pop-quiz.netlify.app/" target="_blank" rel="noopener noreferrer">
+                <font-awesome-icon icon="fa-solid fa-link" />
+                単語クイズに挑戦
+            </a>
             <div class="exception-clause">
                 ※ リストは随時自動保存されます。
                 <br>
@@ -37,7 +41,7 @@ export default {
         },
     },
     methods:{
-        turnOverScreen() {
+        toggleDarkMode() {
             this.$emit("click", !this.darkMode);
         },
         resetBothLists() {

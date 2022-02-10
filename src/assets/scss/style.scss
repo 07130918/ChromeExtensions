@@ -127,7 +127,17 @@ body {
 }
 
 .reset-all {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.site-link {
+    display: inline-block;
+    transition: color .25s;
+    text-decoration: none;
+    padding-bottom: .4rem;
+    &:hover {
+        color : #ff7043;
+    }
 }
 
 .exception-clause {
