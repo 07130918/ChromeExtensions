@@ -42,7 +42,6 @@ export default {
     },
     created() {
         chrome.storage.local.get('darkMode', function(item) {
-            alert(item.darkMode);
             this.darkMode = item.darkMode ? true : false;
         }.bind(this));
     },
