@@ -1,0 +1,26 @@
+.app-content.dark-mode {
+    background-color: #1E1E1E;
+    color: #fff;
+
+    .checkbox {
+        &:before {
+            border-color: #131313;
+        }
+        &:checked {
+            &:before {
+                border-color: #009688;
+                border-top-style: none;
+                border-right-style: none;
+            }
+        }
+
+        &:after {
+            background-color: #131313;
+        }
+    }
+
+    input {
+        background-color: #131313;
+        color: #fff;
+    }
+}

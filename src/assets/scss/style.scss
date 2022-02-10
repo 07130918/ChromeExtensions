@@ -1,112 +1,117 @@
 $vue-green: #009688;
+$danger: #dc3545;
 
 // App.vue
 body {
     width: 300px;
-    padding: 10px;
     border: $vue-green solid 1px;
 }
-#list-title-wrapper {
-    display: flex;
-    margin-bottom: 10px;
-    &:hover {
-        cursor: pointer;
-    }
-    h5 {
-        padding: 0 2px;
-        margin: 0 5px;
-        border-bottom: 1px solid gray;
-        opacity: .2;
-    }
-    .active-component {
-        opacity: 1;
-    }
-}
 
-// components
-.to-do-list, .not-to-do-list {
-    margin-left: .5rem;
-}
+.app-content {
+    padding: 10px;
 
-.not-to-do-list {
+    #list-title-wrapper {
+        display: flex;
+        margin-bottom: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+        h5 {
+            padding: 0 2px;
+            margin: 0 5px;
+            border-bottom: 1px solid gray;
+            opacity: .2;
+        }
+        .active-component {
+            opacity: 1;
+        }
+    }
+
+    // components
+    .to-do-list, .not-to-do-list {
+        margin-left: .5rem;
+    }
+
+    .not-to-do-list {
+        .list-children {
+            padding-left: 1.8rem;
+        }
+    }
+
     .list-children {
-        padding-left: 1.8rem;
-    }
-}
-
-.list-children {
-    padding-bottom: 10px;
-}
-
-.checkbox {
-    position: relative;
-    margin: 0 1rem 0 0;
-    cursor: pointer;
-
-    &:before {
-        transition: all .25s ease-in-out;
-        content: "";
-        position: absolute;
-        left: 0;
-        z-index: 1;
-        width: 1rem;
-        height: 1rem;
-        border: 2px solid #c1c1c1;
+        padding-bottom: 10px;
     }
 
-    &:checked {
-        &:before {
-            transform: rotate(-45deg);
-            height: .5rem;
-            border-color: $vue-green;
-            border-top-style: none;
-            border-right-style: none;
-        }
-    }
-
-    &:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        width: 1.1rem;
-        height: 1.1rem;
-        background: #fff;
+    .checkbox {
+        position: relative;
+        margin: 0 1rem 0 0;
         cursor: pointer;
-    }
-}
 
-.text-content-wrapper {
-    display: inline-block;
-    input[type='text'] {
-        box-sizing: border-box;
-        width: 200px;
-        letter-spacing: 1px;
-        border: 0;
-        &:focus {
-            outline: none;
+        &:before {
+            transition: all .25s ease-in-out;
+            content: "";
+            position: absolute;
+            left: 0;
+            z-index: 1;
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid #c1c1c1;
         }
-    }
 
-    &:after {
-        display: block;
-        content: '';
-        height: 4px;
-        margin-top: -1px;
-        border-width: 0 1px 1px 1px;
-        border-style: solid;
-        border-color: $vue-green;
-    }
-    &.not {
+        &:checked {
+            &:before {
+                transform: rotate(-45deg);
+                height: .5rem;
+                border-color: $vue-green;
+                border-top-style: none;
+                border-right-style: none;
+            }
+        }
+
         &:after {
-            border-color: #dc3545;
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 1.1rem;
+            height: 1.1rem;
+            background-color: #fff;
+            cursor: pointer;
         }
     }
-}
 
-.text-content {
-    padding: 0;
-}
+    .text-content-wrapper {
+        display: inline-block;
+        input[type='text'] {
+            box-sizing: border-box;
+            width: 200px;
+            letter-spacing: 1px;
+            border: 0;
+            &:focus {
+                outline: none;
+            }
+        }
 
-.reset {
-    margin-left: 2.2rem;
+        &:after {
+            display: block;
+            content: '';
+            height: 4px;
+            margin-top: -1px;
+            border-width: 0 1px 1px 1px;
+            border-style: solid;
+            border-color: $vue-green;
+        }
+        &.not {
+            &:after {
+                border-color: $danger;
+            }
+        }
+    }
+
+    .text-content {
+        padding: 0;
+    }
+
+    .reset {
+        margin-left: 2.2rem;
+    }
 }
