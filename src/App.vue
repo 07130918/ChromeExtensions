@@ -17,11 +17,14 @@
 </template>
 
 <script>
+import mixinFunctions from "../mixinFunctions";
+
 import ToDoList from './components/ToDoList.vue'
 import NotToDoList from './components/NotToDoList.vue'
 import Preferences from './components/Preferences.vue'
 
 export default {
+    mixins: [mixinFunctions],
     name: 'App',
     data() {
         return {
