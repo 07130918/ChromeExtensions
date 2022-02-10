@@ -25,15 +25,9 @@ export default {
         }
     },
     created() {
-        console.log(this.$options._componentTag);
-        // chrome.storage.local.get('toDoList', function(item) {
-        //     this.toDoList = item.toDoList ? item.toDoList : this.createList(this.listLength, 'toDoList');
-        // }.bind(this));
-        this.toDoList = [
-            { isInputable: false, content: '' },
-            { isInputable: false, content: '' },
-            { isInputable: false, content: '' }
-        ];
+        chrome.storage.local.get('toDoList', function(item) {
+            this.toDoList = item.toDoList ? item.toDoList : this.createList(this.listLength, 'toDoList');
+        }.bind(this));
     },
     methods: {
         updateIsInputable(list, event) {

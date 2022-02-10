@@ -24,14 +24,9 @@ export default {
         }
     },
     created() {
-        // chrome.storage.local.get('notToDoList', function(item) {
-        //     this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.listLength, 'notToDoList');
-        // }.bind(this));
-        this.notToDoList = [
-            { isInputable: false, content: '' },
-            { isInputable: false, content: '' },
-            { isInputable: false, content: '' }
-        ];
+        chrome.storage.local.get('notToDoList', function(item) {
+            this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.listLength, 'notToDoList');
+        }.bind(this));
     },
     methods: {
         updateContent(list, event) {
