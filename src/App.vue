@@ -1,8 +1,8 @@
 <template>
     <div id="app">
         <div id="list-title-wrapper">
-            <h5 :class="{'active-component': isToDo}" @click="changeComponent('to-do-list')">To Do List</h5>
-            <h5 :class="{'active-component': isNotToDo}" @click="changeComponent('not-to-do-list')">Not To Do List</h5>
+            <h5 :class="{'active-component': isToDo}" @click="componentChangeTo('to-do-list')">To Do List</h5>
+            <h5 :class="{'active-component': isNotToDo}" @click="componentChangeTo('not-to-do-list')">Not To Do List</h5>
         </div>
         <!-- keep-aliveはなくても動くが切り替えの描画に影響する -->
         <keep-alive>
@@ -29,7 +29,7 @@ export default {
         'not-to-do-list': NotToDoList,
     },
     methods: {
-        changeComponent(componentName) {
+        componentChangeTo(componentName) {
             this.currentComponent = componentName;
             if (this.currentComponent === 'to-do-list') {
                 this.isToDo = true;
