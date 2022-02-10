@@ -9,7 +9,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-danger reset" @click="toDoList=createList(listLength, 'toDoList')">Reset</button>
+        <button class="btn btn-outline-danger btn-sm reset" @click="toDoList=createList(listLength, 'toDoList')">Reset</button>
     </div>
 </template>
 
@@ -25,9 +25,15 @@ export default {
         }
     },
     created() {
-        chrome.storage.local.get('toDoList', function(item) {
-            this.toDoList = item.toDoList ? item.toDoList : this.createList(this.listLength, 'toDoList');
-        }.bind(this));
+        console.log(this.$options._componentTag);
+        // chrome.storage.local.get('toDoList', function(item) {
+        //     this.toDoList = item.toDoList ? item.toDoList : this.createList(this.listLength, 'toDoList');
+        // }.bind(this));
+        this.toDoList = [
+            { isInputable: false, content: '' },
+            { isInputable: false, content: '' },
+            { isInputable: false, content: '' }
+        ];
     },
     methods: {
         updateIsInputable(list, event) {

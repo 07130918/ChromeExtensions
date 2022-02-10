@@ -8,7 +8,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-danger reset" @click="notToDoList=createList(listLength, 'notToDoList')">Reset</button>
+        <button class="btn btn-outline-danger btn-sm reset" @click="notToDoList=createList(listLength, 'notToDoList')">Reset</button>
     </div>
 </template>
 
@@ -24,9 +24,14 @@ export default {
         }
     },
     created() {
-        chrome.storage.local.get('notToDoList', function(item) {
-            this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.listLength, 'notToDoList');
-        }.bind(this));
+        // chrome.storage.local.get('notToDoList', function(item) {
+        //     this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.listLength, 'notToDoList');
+        // }.bind(this));
+        this.notToDoList = [
+            { isInputable: false, content: '' },
+            { isInputable: false, content: '' },
+            { isInputable: false, content: '' }
+        ];
     },
     methods: {
         updateContent(list, event) {
