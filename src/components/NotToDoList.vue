@@ -3,7 +3,9 @@
         <div class="not-to-do-list">
             <!-- :keyは仮置 -->
             <div class="list-children" v-for="list in notToDoList" :key="list.content.value">
-                <input type="text" class="text-content" :value="list.content" @change="updateContent(list, $event)" autocomplete="off">
+                <div class="text-content-wrapper">
+                    <input type="text" class="text-content" :value="list.content" @change="updateContent(list, $event)" autocomplete="off">
+                </div>
             </div>
         </div>
         <button class="btn btn-danger reset" @click="notToDoList=createList(listLength, 'notToDoList')">Reset</button>
@@ -22,9 +24,14 @@ export default {
         }
     },
     created() {
-        chrome.storage.local.get('notToDoList', function(item) {
-            this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.listLength, 'notToDoList');
-        }.bind(this));
+        // chrome.storage.local.get('notToDoList', function(item) {
+        //     this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.listLength, 'notToDoList');
+        // }.bind(this));
+        this.notToDoList = [
+            { isInputable: false, content: '' },
+            { isInputable: false, content: '' },
+            { isInputable: false, content: '' }
+        ];
     },
     methods: {
         updateContent(list, event) {

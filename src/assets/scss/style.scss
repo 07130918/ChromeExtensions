@@ -16,6 +16,7 @@ body {
 .to-do-list, .not-to-do-list {
     margin-left: .5rem;
 }
+
 .not-to-do-list {
     .list-children {
         padding-left: 1.8rem;
@@ -63,6 +64,33 @@ body {
     }
 }
 
+.text-content-wrapper {
+    display: inline-block;
+    input[type='text'] {
+        box-sizing: border-box;
+        width: 200px;
+        letter-spacing: 1px;
+        border: 0;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &:after {
+        display: block;
+        content: '';
+        height: 4px;
+        margin-top: -1px;
+        border-width: 0 1px 1px 1px;
+        border-style: solid;
+        border-color: #009688;
+    }
+}
+
+.text-content {
+    padding: 0;
+}
+
 .reset {
-    margin-left: 2.3rem;
+    margin-left: 2.2rem;
 }
