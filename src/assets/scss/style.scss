@@ -10,17 +10,19 @@ body {
 .app-content {
     padding: 10px;
 
-    #list-title-wrapper {
+    #component-title-wrapper {
         display: flex;
         margin-bottom: 10px;
         &:hover {
             cursor: pointer;
         }
-        h5 {
+        .title {
             padding: 0 2px;
             margin: 0 5px;
-            border-bottom: 1px solid gray;
             opacity: .2;
+            &.border-b {
+                border-bottom: 1px solid gray;
+            }
         }
         .active-component {
             opacity: 1;
@@ -111,7 +113,23 @@ body {
         padding: 0;
     }
 
-    .reset {
+    .btn-wrapper {
         margin-left: 2.2rem;
+        .btn:nth-child(2) {
+            margin-left: 1rem;
+        }
     }
+}
+
+// preferences
+.btn-dark-mode {
+    margin: 1rem 0;
+}
+
+.reset-all {
+    margin-bottom: 1rem;
+}
+
+.exception-clause {
+    font-size: .6rem;
 }

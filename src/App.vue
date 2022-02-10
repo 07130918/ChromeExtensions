@@ -1,16 +1,29 @@
 <template>
     <div id="app">
         <div class="app-content" :class="{'dark-mode': darkMode}">
-            <div id="list-title-wrapper">
-                <h5 :class="{'active-component': isToDo}" @click="componentChangeTo('to-do-list')">To Do List</h5>
-                <h5 :class="{'active-component': isNotToDo}" @click="componentChangeTo('not-to-do-list')">Not To Do List</h5>
-                <h5 :class="{'active-component': isPreferences}" @click="componentChangeTo('preferences-setting');">
+            <div id="component-title-wrapper">
+                <h5 class="title border-b" :class="{'active-component': isToDo}"
+                @click="componentChangeTo('to-do-list')">
+                    To Do List
+                </h5>
+                <h5 class="title border-b" :class="{'active-component': isNotToDo}"
+                @click="componentChangeTo('not-to-do-list')">
+                    Not To Do List
+                </h5>
+                <h5 class="title" :class="{'active-component': isPreferences}"
+                @click="componentChangeTo('preferences-setting');">
                     <font-awesome-icon icon="fa-solid fa-gear"/>
                 </h5>
             </div>
             <!-- keep-aliveはなくても動くが切り替えの描画に影響する -->
             <keep-alive>
-                <component :is="currentComponent" :darkMode=darkMode @click="toggleScreenMode"></component>
+                <component
+                :is="currentComponent"
+                :darkMode="darkMode"
+                :toDoListLength="toDoListLength"
+                :notToDoListLength="notToDoListLength"
+                @click="toggleScreenMode">
+                </component>
             </keep-alive>
         </div>
     </div>
@@ -37,6 +50,8 @@ export default {
             isToDo: true,
             isNotToDo: false,
             isPreferences: false,
+            toDoListLength: 6,
+            notToDoListLength: 3,
             currentComponent: 'to-do-list',
         }
     },
@@ -49,18 +64,18 @@ export default {
         componentChangeTo(componentName) {
             this.currentComponent = componentName;
             if (this.currentComponent === 'to-do-list') {
-                this.isToDo = true;
-                this.isNotToDo = false;
-                this.isPreferences = false;
+                this.changeCssActiveComponent([true, false, false]);
             } else if (this.currentComponent === 'not-to-do-list') {
-                this.isToDo = false;
-                this.isNotToDo = true;
-                this.isPreferences = false;
+                this.changeCssActiveComponent([false, true, false]);
             } else {
-                this.isToDo = false;
-                this.isNotToDo = false;
-                this.isPreferences = true;
+                this.changeCssActiveComponent([false, false, true]);
             }
+        },
+        changeCssActiveComponent(renewList) {
+            // 引数は必ず[this.isToDo, this.isNotToDo, this.isPreferences]の順番のBoolean渡す
+            this.isToDo = renewList[0];
+            this.isNotToDo = renewList[1];
+            this.isPreferences = renewList[2];
         },
         toggleScreenMode(value) {
             this.darkMode = value;

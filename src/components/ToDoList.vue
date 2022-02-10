@@ -9,7 +9,10 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-outline-danger btn-sm reset" @click="toDoList=createList(listLength, 'toDoList')">Reset</button>
+        <div class="btn-wrapper">
+            <button class="btn btn-outline-danger btn-sm" @click="allInputablesWillBeFalse">uncheck</button>
+            <button class="btn btn-outline-danger btn-sm" @click="toDoList=createList(this.toDoListLength, 'toDoList')">Reset</button>
+        </div>
     </div>
 </template>
 
@@ -18,15 +21,25 @@ import mixinFunctions from "../mixinFunctions";
 
 export default {
     mixins: [mixinFunctions],
+    props: {
+        toDoListLength: {
+            type: Number,
+            required: true,
+        },
+    },
     data() {
         return {
             toDoList: [],
-            listLength: 6,
         }
     },
     created() {
         chrome.storage.local.get('toDoList', function(item) {
-            this.toDoList = item.toDoList ? item.toDoList : this.createList(this.listLength, 'toDoList');
+            this.toDoList = item.toDoList ? item.toDoList : this.createList(this.toDoListLength, 'toDoList');
+        }.bind(this));
+    },
+    activated() {
+        chrome.storage.local.get('toDoList', function(item) {
+            this.toDoList = item.toDoList ? item.toDoList : this.createList(this.toDoListLength, 'toDoList');
         }.bind(this));
     },
     methods: {
@@ -36,6 +49,12 @@ export default {
         },
         updateContent(list, event) {
             list.content = event.target.value;
+            this.setToChromeStorage('toDoList', this.toDoList);
+        },
+        allInputablesWillBeFalse() {
+            this.toDoList.forEach(list => {
+                list.isInputable = false;
+            });
             this.setToChromeStorage('toDoList', this.toDoList);
         },
     },

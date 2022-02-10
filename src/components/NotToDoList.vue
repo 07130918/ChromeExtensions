@@ -8,7 +8,9 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-outline-danger btn-sm reset" @click="notToDoList=createList(listLength, 'notToDoList')">Reset</button>
+        <div class="btn-wrapper">
+            <button class="btn btn-outline-danger btn-sm" @click="notToDoList=createList(notToDoListLength, 'notToDoList')">Reset</button>
+        </div>
     </div>
 </template>
 
@@ -17,15 +19,25 @@ import mixinFunctions from "../mixinFunctions";
 
 export default {
     mixins: [mixinFunctions],
+    props: {
+        notToDoListLength: {
+            type: Number,
+            required: true,
+        },
+    },
     data() {
         return {
             notToDoList: [],
-            listLength: 3,
         }
     },
     created() {
         chrome.storage.local.get('notToDoList', function(item) {
-            this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.listLength, 'notToDoList');
+            this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.notToDoListLength, 'notToDoList');
+        }.bind(this));
+    },
+    activated() {
+        chrome.storage.local.get('notToDoList', function(item) {
+            this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.notToDoListLength, 'notToDoList');
         }.bind(this));
     },
     methods: {
