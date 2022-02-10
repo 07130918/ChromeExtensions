@@ -1,5 +1,6 @@
 $vue-green: #009688;
 $danger: #dc3545;
+$site-link-hover-color: #ff7043;
 
 // App.vue
 body {
@@ -46,7 +47,7 @@ body {
 
     .checkbox {
         position: relative;
-        margin: 0 1rem 0 0;
+        margin-right: 1rem;
         cursor: pointer;
 
         &:before {
@@ -136,7 +137,7 @@ body {
     text-decoration: none;
     padding-bottom: .4rem;
     &:hover {
-        color : #ff7043;
+        color : $site-link-hover-color;
     }
 }
 

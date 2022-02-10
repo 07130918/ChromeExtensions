@@ -1,5 +1,9 @@
+$light-black: #1E1E1E;
+$dark-black: #131313;
+$vue-green: #009688;
+
 .app-content.dark-mode {
-    background-color: #1E1E1E;
+    background-color: $light-black;
     color: #fff;
 
     .checkbox {
@@ -8,19 +12,25 @@
         }
         &:checked {
             &:before {
-                border-color: #009688;
+                border-color: $vue-green;
                 border-top-style: none;
                 border-right-style: none;
             }
         }
 
         &:after {
-            background-color: #131313;
+            background-color: $dark-black;
         }
     }
 
     input {
-        background-color: #131313;
+        background-color: $dark-black;
         color: #fff;
+    }
+
+    .text-content:disabled {
+        background-color: $light-black;
+        color: #fff;
+        opacity: .6;
     }
 }
