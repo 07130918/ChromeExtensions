@@ -3,7 +3,7 @@
         <div class="not-to-do-list">
             <!-- :keyは仮置 -->
             <div class="list-children" v-for="list in notToDoList" :key="list.content.value">
-                <div class="text-content-wrapper">
+                <div class="text-content-wrapper not">
                     <input type="text" class="text-content" :value="list.content" @change="updateContent(list, $event)" autocomplete="off">
                 </div>
             </div>
