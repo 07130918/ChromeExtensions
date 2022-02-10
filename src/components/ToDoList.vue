@@ -11,7 +11,7 @@
         </div>
         <div class="btn-wrapper">
             <button class="btn btn-outline-danger btn-sm" @click="allInputablesWillBeFalse">uncheck</button>
-            <button class="btn btn-outline-danger btn-sm" @click="toDoList=createList(this.toDoListLength, 'toDoList')">Reset</button>
+            <button class="btn btn-outline-danger btn-sm" @click="toDoList=createList(toDoListLength, 'toDoList')">Reset</button>
         </div>
     </div>
 </template>
