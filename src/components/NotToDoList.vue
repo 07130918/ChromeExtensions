@@ -31,16 +31,17 @@ export default {
         }
     },
     created() {
-        chrome.storage.local.get('notToDoList', function(item) {
-            this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.notToDoListLength, 'notToDoList');
-        }.bind(this));
+        this.getNotToDoListFromChromeStorage();
     },
     activated() {
-        chrome.storage.local.get('notToDoList', function(item) {
-            this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.notToDoListLength, 'notToDoList');
-        }.bind(this));
-    },
+        this.getNotToDoListFromChromeStorage();
+        },
     methods: {
+        getNotToDoListFromChromeStorage() {
+            chrome.storage.local.get('notToDoList', function(item) {
+                this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.notToDoListLength, 'notToDoList');
+            }.bind(this));
+        },
         updateContent(list, event) {
             list.content = event.target.value;
             this.setToChromeStorage('notToDoList', this.notToDoList);

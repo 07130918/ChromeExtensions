@@ -33,16 +33,17 @@ export default {
         }
     },
     created() {
-        chrome.storage.local.get('toDoList', function(item) {
-            this.toDoList = item.toDoList ? item.toDoList : this.createList(this.toDoListLength, 'toDoList');
-        }.bind(this));
+        this.getToDoListFromChromeStorage();
     },
     activated() {
-        chrome.storage.local.get('toDoList', function(item) {
-            this.toDoList = item.toDoList ? item.toDoList : this.createList(this.toDoListLength, 'toDoList');
-        }.bind(this));
+        this.getToDoListFromChromeStorage();
     },
     methods: {
+        getToDoListFromChromeStorage() {
+            chrome.storage.local.get('toDoList', function(item) {
+                this.toDoList = item.toDoList ? item.toDoList : this.createList(this.toDoListLength, 'toDoList');
+            }.bind(this));
+        },
         updateIsInputable(list, event) {
             list.isInputable = event.target.checked;
             this.setToChromeStorage('toDoList', this.toDoList);
