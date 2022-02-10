@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import mixinFunctions from "../mixinFunctions";
+import mixinFunctions from "./mixinFunctions";
 
 import ToDoList from './components/ToDoList.vue'
 import NotToDoList from './components/NotToDoList.vue'
@@ -26,6 +26,11 @@ import Preferences from './components/Preferences.vue'
 export default {
     mixins: [mixinFunctions],
     name: 'App',
+    components: {
+        'to-do-list': ToDoList,
+        'not-to-do-list': NotToDoList,
+        'preferences-setting': Preferences,
+    },
     data() {
         return {
             darkMode: false,
@@ -35,17 +40,9 @@ export default {
             currentComponent: 'to-do-list',
         }
     },
-    components: {
-        'to-do-list': ToDoList,
-        'not-to-do-list': NotToDoList,
-        'preferences-setting': Preferences,
-    },
     created() {
         chrome.storage.local.get('darkMode', function(item) {
-            if (typeOf(item.darkMode) === 'undefined') {
-                this.darkMode = false;
-                return;
-            }
+            alert(item.darkMode);
             this.darkMode = item.darkMode ? true : false;
         }.bind(this));
     },
