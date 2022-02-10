@@ -8,9 +8,18 @@ body {
 }
 #list-title-wrapper {
     display: flex;
+    margin-bottom: 10px;
+    &:hover {
+        cursor: pointer;
+    }
     h5 {
-        padding: 2px 10px;
-        border: 1px solid gray;
+        padding: 0 2px;
+        margin: 0 5px;
+        border-bottom: 1px solid gray;
+        opacity: .2;
+    }
+    .active-component {
+        opacity: 1;
     }
 }
 
