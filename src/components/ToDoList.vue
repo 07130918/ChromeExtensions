@@ -1,13 +1,15 @@
 <template>
     <div>
         <div class="to-do-list">
-            <!-- :keyは仮置 -->
-            <div class="list-children" v-for="list in toDoList" :key="list.content.value">
-                <input type="checkbox" class="checkbox" :checked="list.isInputable" @change="updateIsInputable(list, $event)">
-                <div class="text-content-wrapper">
-                    <input type="text" class="text-content" :value="list.content" @change="updateContent(list, $event)" autocomplete="off" :disabled="list.isInputable">
+            <draggable v-model="toDoList">
+                <!-- :keyは仮置 -->
+                <div class="list-children" v-for="list in toDoList" :key="list.content.value">
+                    <input type="checkbox" class="checkbox" :checked="list.isInputable" @change="updateIsInputable(list, $event)">
+                    <div class="text-content-wrapper">
+                        <input type="text" class="text-content" :value="list.content" @change="updateContent(list, $event)" autocomplete="off" :disabled="list.isInputable">
+                    </div>
                 </div>
-            </div>
+            </draggable>
         </div>
         <div class="btn-wrapper">
             <button class="btn btn-outline-danger btn-sm" @click="allInputablesWillBeFalse">uncheck</button>
@@ -17,6 +19,7 @@
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import mixinFunctions from "../mixinFunctions";
 
 export default {
@@ -26,6 +29,9 @@ export default {
             type: Number,
             required: true,
         },
+    },
+    components: {
+        draggable,
     },
     data() {
         return {
@@ -40,9 +46,17 @@ export default {
     },
     methods: {
         getToDoListFromChromeStorage() {
-            chrome.storage.local.get('toDoList', function(item) {
-                this.toDoList = item.toDoList ? item.toDoList : this.createList(this.toDoListLength, 'toDoList');
-            }.bind(this));
+            // chrome.storage.local.get('toDoList', function(item) {
+            //     this.toDoList = item.toDoList ? item.toDoList : this.createList(this.toDoListLength, 'toDoList');
+            // }.bind(this));
+            this.toDoList = [
+                { isInputable: false, content: '' },
+                { isInputable: false, content: '' },
+                { isInputable: false, content: '' },
+                { isInputable: false, content: '' },
+                { isInputable: false, content: '' },
+                { isInputable: false, content: '' },
+            ]
         },
         updateIsInputable(list, event) {
             list.isInputable = event.target.checked;
