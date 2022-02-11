@@ -37,25 +37,12 @@ export default {
         }
     },
     created() {
-        this.getNotToDoListFromChromeStorage();
+        this.notToDoList = this.getFromChromeStorage('notToDoList', this.notToDoListLength);
     },
     activated() {
-        this.getNotToDoListFromChromeStorage();
-        },
+        this.notToDoList = this.getFromChromeStorage('notToDoList', this.notToDoListLength);
+    },
     methods: {
-        getNotToDoListFromChromeStorage() {
-            // chrome.storage.local.get('notToDoList', function(item) {
-            //     this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(this.notToDoListLength, 'notToDoList');
-            // }.bind(this));
-            this.notToDoList = [
-                { isInputable: false, content: '' },
-                { isInputable: false, content: '' },
-                { isInputable: false, content: '' },
-                { isInputable: false, content: '' },
-                { isInputable: false, content: '' },
-                { isInputable: false, content: '' },
-            ]
-        },
         updateContent(list, event) {
             list.content = event.target.value;
             this.setToChromeStorage('notToDoList', this.notToDoList);
