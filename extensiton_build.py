@@ -8,7 +8,7 @@ import shutil
 def main():
     content = {
         "name": "To Do List",
-        "description": "A simple to-do list extension\nYou can also write your own not to do list",
+        "description": "A simple to-do list extension\\nYou can also write your own not to do list",
         "manifest_version": 3,
         "version": "1.0",
         "permissions": ["activeTab", "scripting", "storage"],
