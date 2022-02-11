@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="not-to-do-list">
-            <draggable v-model="notToDoList">
+            <draggable v-model="notToDoList" :options="{animation:200}">
                 <!-- :keyは仮置 -->
                 <div class="list-children" v-for="list in notToDoList" :key="list.content.value">
                     <div class="text-content-wrapper not">

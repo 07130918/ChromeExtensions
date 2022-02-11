@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="to-do-list">
-            <draggable v-model="toDoList">
+            <draggable v-model="toDoList" :options="{animation:200}">
                 <!-- :keyは仮置 -->
                 <div class="list-children" v-for="list in toDoList" :key="list.content.value">
                     <input type="checkbox" class="checkbox" :checked="list.isInputable" @change="updateIsInputable(list, $event)">
