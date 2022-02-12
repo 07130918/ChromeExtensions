@@ -45,6 +45,11 @@ export default {
         this.toDoList = this.getFromChromeStorage('toDoList', this.toDoListLength);
     },
     methods: {
+        getFromChromeStorage() {
+            chrome.storage.local.get('toDoList', function (item) {
+                this.toDoList = item.toDoList ? item.toDoList : this.createList(objLength, toDoList);
+            }.bind(this));
+        },
         updateIsInputable(list, event) {
             list.isInputable = event.target.checked;
             this.setToChromeStorage('toDoList', this.toDoList);

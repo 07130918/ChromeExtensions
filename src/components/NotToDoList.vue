@@ -43,6 +43,11 @@ export default {
         this.notToDoList = this.getFromChromeStorage('notToDoList', this.notToDoListLength);
     },
     methods: {
+        getFromChromeStorage() {
+            chrome.storage.local.get('notToDoList', function (item) {
+                this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(objLength, notToDoList);
+            }.bind(this));
+        },
         updateContent(list, event) {
             list.content = event.target.value;
             this.setToChromeStorage('notToDoList', this.notToDoList);
