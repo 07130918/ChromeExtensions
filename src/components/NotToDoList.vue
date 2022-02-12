@@ -11,7 +11,7 @@
             </draggable>
         </div>
         <div class="btn-wrapper">
-            <button class="btn btn-outline-danger btn-sm" @click="notToDoList=createList(notToDoListLength, 'notToDoList')">Reset</button>
+            <button class="btn btn-outline-danger btn-sm" @click="notToDoList=createList('notToDoList', notToDoListLength)">Reset</button>
         </div>
     </div>
 </template>
@@ -37,15 +37,16 @@ export default {
         }
     },
     created() {
-        this.notToDoList = this.getFromChromeStorage('notToDoList', this.notToDoListLength);
+        this.getFromChromeStorage();
     },
     activated() {
-        this.notToDoList = this.getFromChromeStorage('notToDoList', this.notToDoListLength);
+        this.getFromChromeStorage();
     },
     methods: {
         getFromChromeStorage() {
             chrome.storage.local.get('notToDoList', function (item) {
-                this.notToDoList = item.notToDoList ? item.notToDoList : this.createList(objLength, notToDoList);
+                this.notToDoList = item.notToDoList ? item.notToDoList : this.createList('notToDoList', this.notToDoListLength);
+                console.log(item);
             }.bind(this));
         },
         updateContent(list, event) {

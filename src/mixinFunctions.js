@@ -1,6 +1,6 @@
 export default {
     methods: {
-        createList(listLength, objName) {
+        createList(objName, listLength) {
             const generatedList = [];
             for (let i = 0; i < listLength; i++) {
                 generatedList.push({ isInputable: false, content: '' });
