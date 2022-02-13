@@ -45,8 +45,8 @@ export default {
             this.$emit("click", !this.darkMode);
         },
         resetBothLists() {
-            this.createList(this.toDoListLength, 'toDoList');
-            this.createList(this.notToDoListLength, 'notToDoList');
+            this.createList('toDoList', this.toDoListLength);
+            this.createList('notToDoList', this.notToDoListLength);
         },
     },
 }

@@ -13,7 +13,7 @@
         </div>
         <div class="btn-wrapper">
             <button class="btn btn-outline-danger btn-sm" @click="allInputablesWillBeFalse">uncheck</button>
-            <button class="btn btn-outline-danger btn-sm" @click="toDoList=createList('toDoList', toDoListLength)">Reset</button>
+            <button class="btn btn-outline-danger btn-sm" @click="createList('toDoList', toDoListLength)">Reset</button>
         </div>
     </div>
 </template>
@@ -39,17 +39,12 @@ export default {
         }
     },
     created() {
-        this.getFromChromeStorage();
+        this.getFromChromeStorage('toDoList', this.toDoListLength);
     },
     activated() {
-        this.getFromChromeStorage();
+        this.getFromChromeStorage('toDoList', this.toDoListLength);
     },
     methods: {
-        getFromChromeStorage() {
-            chrome.storage.local.get('toDoList', function (item) {
-                this.toDoList = item.toDoList ? item.toDoList : this.createList('toDoList', this.toDoListLength);
-            }.bind(this));
-        },
         updateIsInputable(list, event) {
             list.isInputable = event.target.checked;
             this.setToChromeStorage('toDoList', this.toDoList);
