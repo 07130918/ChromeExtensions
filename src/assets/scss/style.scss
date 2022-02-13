@@ -86,10 +86,13 @@ body {
         input[type='text'] {
             box-sizing: border-box;
             width: 200px;
-            letter-spacing: 1px;
+            padding: 0 5px;
             border: 0;
             &:focus {
                 outline: none;
+            }
+            &:hover {
+                cursor: pointer;
             }
         }
 
@@ -124,6 +127,12 @@ body {
 // preferences
 .btn-dark-mode {
     margin: 1rem 0;
+}
+
+.custom-control-input, .custom-control-label {
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .reset-all {
