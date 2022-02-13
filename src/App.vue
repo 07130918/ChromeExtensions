@@ -50,9 +50,10 @@ export default {
             isToDo: true,
             isNotToDo: false,
             isPreferences: false,
+            currentComponent: 'to-do-list',
+            // Preferencesのリセットで使うため親で定義
             toDoListLength: 6,
             notToDoListLength: 3,
-            currentComponent: 'to-do-list',
         }
     },
     created() {
