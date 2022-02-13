@@ -1,8 +1,13 @@
 export default {
     methods: {
-        getFromChromeStorage(objName, listLength) {
+        getFromChromeStorage(objName, listLength = null) {
             chrome.storage.local.get(objName, function(item) {
-                this[objName] = item[objName] ? item[objName] : this.createList(objName, listLength);
+                if (listLength === null) {
+                    // dark mode
+                    this[objName] = item[objName] ? true : false;
+                } else {
+                    this[objName] = item[objName] ? item[objName] : this.createList(objName, listLength);
+                }
             }.bind(this));
         },
         createList(objName, listLength) {
@@ -14,7 +19,7 @@ export default {
             this[objName] = generatedList;
         },
         setToChromeStorage(objName, object) {
-            chrome.storage.local.set({ [objName]: object }, function () {
+            chrome.storage.local.set({ [objName]: object }, function() {
                 console.log(`${objName} saved`);
             });
         },

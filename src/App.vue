@@ -56,9 +56,7 @@ export default {
         }
     },
     created() {
-        chrome.storage.local.get('darkMode', function(item) {
-            this.darkMode = item.darkMode ? true : false;
-        }.bind(this));
+        this.getFromChromeStorage('darkMode');
     },
     methods: {
         componentChangeTo(componentName) {
