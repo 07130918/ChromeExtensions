@@ -30,7 +30,9 @@ body {
     }
 
     // components
-    .to-do-list, .not-to-do-list {
+    .to-do-list,
+    .not-to-do-list,
+    .preferences {
         margin-left: .5rem;
     }
 
@@ -126,7 +128,7 @@ body {
 
 // preferences
 .btn-dark-mode {
-    margin: 1rem 0;
+    margin: 1.6rem 0 1rem 0;
 }
 
 .custom-control-input, .custom-control-label {
@@ -146,6 +148,9 @@ body {
     padding-bottom: .4rem;
     &:hover {
         color : $site-link-hover-color;
+    }
+    &.sm {
+        font-size: .8rem;
     }
 }
 
