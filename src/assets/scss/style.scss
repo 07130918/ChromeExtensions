@@ -96,6 +96,10 @@ body {
             &:hover {
                 cursor: pointer;
             }
+            &:disabled {
+                cursor: default;
+                opacity: .8;
+            }
         }
 
         &:after {
@@ -111,14 +115,6 @@ body {
             &:after {
                 border-color: $danger;
             }
-        }
-    }
-
-    .text-content {
-        padding: 0;
-        &:disabled {
-            cursor: default;
-            opacity: .8;
         }
     }
 

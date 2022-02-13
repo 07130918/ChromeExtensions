@@ -1,10 +1,11 @@
 $light-black: #1E1E1E;
 $dark-black: #131313;
 $vue-green: #009688;
+$white: #fff;
 
 .app-content.dark-mode {
     background-color: $light-black;
-    color: #fff;
+    color: $white;
 
     .checkbox {
         &:before {
@@ -25,12 +26,15 @@ $vue-green: #009688;
 
     input {
         background-color: $dark-black;
-        color: #fff;
+        color: $white;
     }
 
-    .text-content:disabled {
-        background-color: $light-black;
-        color: #fff;
-        opacity: .6;
+    .text-content-wrapper {
+        input[type='text'] {
+            &:disabled {
+                background-color: $light-black;
+                opacity: .6;
+            }
+        }
     }
 }
