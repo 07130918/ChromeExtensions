@@ -1,9 +1,8 @@
 <template>
     <div>
         <div class="not-to-do-list">
-            <draggable v-model="notToDoList" :options="{animation:200}">
-                <!-- :keyは仮置 -->
-                <div class="list-children" v-for="list in notToDoList" :key="list.content.value">
+            <draggable v-model="notToDoList" :options="{animation: 200}">
+                <div class="list-children" v-for="list in notToDoList" :key="list.id">
                     <div class="text-content-wrapper not">
                         <input type="text" class="text-content" :value="list.content" @change="updateContent(list, $event)" autocomplete="off">
                     </div>
@@ -38,6 +37,11 @@ export default {
     },
     created() {
         this.getFromChromeStorage('notToDoList', this.notToDoListLength);
+    },
+    updated() {
+        this.$nextTick(function(){
+            this.setToChromeStorage('notToDoList', this.notToDoList);
+        });
     },
     activated() {
         this.getFromChromeStorage('notToDoList', this.notToDoListLength);

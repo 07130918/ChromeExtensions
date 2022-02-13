@@ -12,8 +12,9 @@ export default {
         },
         createList(objName, listLength) {
             const generatedList = [];
+            const uniqueIds = ['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta'];
             for (let i = 0; i < listLength; i++) {
-                generatedList.push({ isInputable: false, content: '' });
+                generatedList.push({ id: uniqueIds[i], isInputable: false, content: '' });
             }
             this.setToChromeStorage(objName, generatedList);
             this[objName] = generatedList;

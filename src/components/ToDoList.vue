@@ -1,9 +1,8 @@
 <template>
     <div>
         <div class="to-do-list">
-            <draggable v-model="toDoList" :options="{animation:200}">
-                <!-- :keyは仮置 -->
-                <div class="list-children" v-for="list in toDoList" :key="list.content.value">
+            <draggable v-model="toDoList" :options="{animation: 200}">
+                <div class="list-children" v-for="list in toDoList" :key="list.id">
                     <input type="checkbox" class="checkbox" :checked="list.isInputable" @change="updateIsInputable(list, $event)">
                     <div class="text-content-wrapper">
                         <input type="text" class="text-content" :value="list.content" @change="updateContent(list, $event)" autocomplete="off" :disabled="list.isInputable">
@@ -40,6 +39,11 @@ export default {
     },
     created() {
         this.getFromChromeStorage('toDoList', this.toDoListLength);
+    },
+    updated() {
+        this.$nextTick(function(){
+            this.setToChromeStorage('toDoList', this.toDoList);
+        });
     },
     activated() {
         this.getFromChromeStorage('toDoList', this.toDoListLength);
