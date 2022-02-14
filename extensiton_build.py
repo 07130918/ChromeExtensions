@@ -15,7 +15,7 @@ def write_manifest():
         "name": "To Do List",
         "description": "A simple to-do list extension, You can also write your own not-to-do list",
         "manifest_version": 3,
-        "version": "1.0",
+        "version": "1.0.1",
         "permissions": ["activeTab", "scripting", "storage"],
         "icons": {
             "16": "icons/icon16.png",
@@ -23,7 +23,7 @@ def write_manifest():
             "128": "icons/icon128.png",
         },
         "action": {
-            "default_icon": "icons/icon.png",
+            "default_icon": "icons/icon128.png",
             "default_popup": "index.html"
         }
     }
@@ -35,7 +35,7 @@ def write_manifest():
 
 def set_icons():
     os.system('mkdir dist/icons')
-    for icon in ['icon.png', 'icon16.png', 'icon48.png', 'icon128.png']:
+    for icon in ['icon16.png', 'icon48.png', 'icon128.png']:
         shutil.copy(f'./src/assets/icons/{icon}', './dist/icons/')
 
 
