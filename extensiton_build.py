@@ -16,7 +16,7 @@ def write_manifest():
         "description": "A simple to-do list extension, You can also write your own not-to-do list",
         "manifest_version": 3,
         "version": "1.0.1",
-        "permissions": ["activeTab", "scripting", "storage"],
+        "permissions": ["activeTab", "storage"],
         "icons": {
             "16": "icons/icon16.png",
             "48": "icons/icon48.png",
