@@ -11,10 +11,9 @@ manifest.json
     "name": "To Do List",
     "description": "A simple to-do list extension, You can also write your own not-to-do list",
     "manifest_version": 3,
-    "version": "1.0",
+    "version": "1.0.1",
     "permissions": [
         "activeTab",
-        "scripting",
         "storage"
     ],
     "icons": {
@@ -23,9 +22,8 @@ manifest.json
         "128": "icons/icon128.png"
     },
     "action": {
-        "default_icon": "icons/icon.png",
+        "default_icon": "icons/icon128.png",
         "default_popup": "index.html"
     }
 }
-
 ```
