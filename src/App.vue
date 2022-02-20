@@ -22,7 +22,7 @@
                 :darkMode="darkMode"
                 :toDoListLength="toDoListLength"
                 :notToDoListLength="notToDoListLength"
-                @click="toggleScreenMode">
+                @change="toggleScreenMode">
                 </component>
             </keep-alive>
         </div>

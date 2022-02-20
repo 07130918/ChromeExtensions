@@ -48,7 +48,7 @@ export default {
     },
     methods:{
         toggleDarkMode() {
-            this.$emit("click", !this.darkMode);
+            this.$emit("change", !this.darkMode);
         },
         resetBothLists() {
             this.createList('toDoList', this.toDoListLength);
