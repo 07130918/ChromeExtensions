@@ -35,9 +35,6 @@ export default {
             notToDoList: [],
         }
     },
-    created() {
-        this.getFromChromeStorage('notToDoList', this.notToDoListLength);
-    },
     updated() {
         this.$nextTick(function(){
             this.setToChromeStorage('notToDoList', this.notToDoList);

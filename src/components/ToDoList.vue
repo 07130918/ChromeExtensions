@@ -37,9 +37,6 @@ export default {
             toDoList: [],
         }
     },
-    created() {
-        this.getFromChromeStorage('toDoList', this.toDoListLength);
-    },
     updated() {
         this.$nextTick(function(){
             this.setToChromeStorage('toDoList', this.toDoList);
