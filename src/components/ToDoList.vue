@@ -37,7 +37,7 @@ export default {
             toDoList: [],
         }
     },
-    created() {
+    activated() {
         this.getFromChromeStorage('toDoList', this.toDoListLength);
     },
     updated() {

@@ -35,7 +35,7 @@ export default {
             notToDoList: [],
         }
     },
-    created() {
+    activated() {
         this.getFromChromeStorage('notToDoList', this.notToDoListLength);
     },
     updated() {
