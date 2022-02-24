@@ -36,9 +36,7 @@ export default {
         }
     },
     created() {
-        setTimeout(() => {
-            this.getFromChromeStorage('notToDoList', this.notToDoListLength);
-        }, 200);
+        this.getFromChromeStorage('notToDoList', this.notToDoListLength);
     },
     updated() {
         this.$nextTick(function() {
