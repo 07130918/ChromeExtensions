@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueI18n from 'vue-i18n'
 import App from './App.vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -19,6 +20,14 @@ require('./assets/scss/dark-mode.scss')
 
 Vue.config.productionTip = false
 
+Vue.use(VueI18n);
+const i18n = new VueI18n({
+    locale: navigator.language.split('-')[0] === 'ja' ? 'ja' : 'en',
+    fallbackLocale: 'ja',
+    messages: require('./messages.json')
+});
+
 new Vue({
     render: h => h(App),
+    i18n,
 }).$mount('#app')
