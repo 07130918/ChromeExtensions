@@ -1,0 +1,14 @@
+{
+    "en": {
+        "try_quiz": "Take the English vocabulary quiz",
+        "report": "Report a bug/Submit a request",
+        "list_store_description": "The lists are automatically saved from time to time.",
+        "disclaimer": "Data preservation is not always guaranteed."
+    },
+    "ja": {
+        "try_quiz": "英単語クイズに挑戦",
+        "report": "この拡張機能のバグを報告/要望を投稿",
+        "list_store_description": "リストは随時自動保存されます。",
+        "disclaimer": "データ保存は必ずしも保証されません。"
+    }
+}

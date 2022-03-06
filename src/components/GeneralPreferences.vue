@@ -11,16 +11,16 @@
             <footer>
                 <a class="site-link" href="https://word-pop-quiz.netlify.app/" target="_blank" rel="noopener noreferrer">
                     <font-awesome-icon icon="fa-solid fa-link" />
-                    英単語クイズに挑戦
+                    {{ $t("try_quiz") }}
                 </a>
                 <a class="site-link sm" href="https://github.com/07130918/ChromeExtentions/issues" target="_blank" rel="noopener noreferrer">
                     <font-awesome-icon icon="fa-solid fa-comments" />
-                    この拡張機能のバグを報告/要望を投稿
+                    {{ $t("report") }}
                 </a>
                 <div class="exception-clause">
-                    ※ リストは随時自動保存されます。
+                    ※ {{ $t("list_store_description") }}
                     <br>
-                    ※ データ保存は必ずしも保証されません。
+                    ※ {{ $t("disclaimer") }}
                 </div>
             </footer>
         </div>

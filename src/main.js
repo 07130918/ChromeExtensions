@@ -23,8 +23,8 @@ Vue.config.productionTip = false
 Vue.use(VueI18n);
 const i18n = new VueI18n({
     locale: navigator.language.split('-')[0] === 'ja' ? 'ja' : 'en',
-    fallbackLocale: 'ja',
-    messages: require('./messages.json')
+    fallbackLocale: 'en',
+    messages: require('./i18n.json')
 });
 
 new Vue({
