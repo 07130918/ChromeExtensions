@@ -11,7 +11,7 @@
             <footer>
                 <a class="site-link" href="https://word-pop-quiz.netlify.app/" target="_blank" rel="noopener noreferrer">
                     <font-awesome-icon icon="fa-solid fa-link" />
-                    単語クイズに挑戦
+                    英単語クイズに挑戦
                 </a>
                 <a class="site-link sm" href="https://github.com/07130918/ChromeExtentions/issues" target="_blank" rel="noopener noreferrer">
                     <font-awesome-icon icon="fa-solid fa-comments" />

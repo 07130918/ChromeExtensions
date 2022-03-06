@@ -11,7 +11,7 @@
                     Not To Do List
                 </h5>
                 <h5 class="title" :class="{'active-component': isPreferences}"
-                @click="componentChangeTo('preferences-setting');">
+                @click="componentChangeTo('general-preferences');">
                     <font-awesome-icon icon="fa-solid fa-gear"/>
                 </h5>
             </div>
@@ -34,7 +34,7 @@ import mixinFunctions from "./mixinFunctions";
 
 import ToDoList from './components/ToDoList.vue'
 import NotToDoList from './components/NotToDoList.vue'
-import Preferences from './components/Preferences.vue'
+import GeneralPreferences from './components/GeneralPreferences.vue'
 
 export default {
     mixins: [mixinFunctions],
@@ -42,7 +42,7 @@ export default {
     components: {
         'to-do-list': ToDoList,
         'not-to-do-list': NotToDoList,
-        'preferences-setting': Preferences,
+        'general-preferences': GeneralPreferences,
     },
     data() {
         return {
@@ -51,7 +51,7 @@ export default {
             isNotToDo: false,
             isPreferences: false,
             currentComponent: 'to-do-list',
-            // Preferencesのリセットで使うため親で定義
+            // GeneralPreferencesのリセットで使うため親で定義
             toDoListLength: 6,
             notToDoListLength: 3,
         }
